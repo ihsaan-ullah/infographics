@@ -1,0 +1,57 @@
+# Infographics challenge yaml file
+# Created by: Ihsan Ullah
+# Created on: June 12, 2024
+
+version: 2
+title: Inforgraphics Challenge
+description: Inforgraphics Challenge
+image: logo.jpg
+registration_auto_approve: False   
+enable_detailed_results: True
+docker_image: ihsaanullah/auto_survey:latest
+
+
+terms: pages/terms.md
+pages:  
+  - title: Overview
+    file: pages/overview.md
+  - title: Credits
+    file: pages/credits.md
+  - title: Terms
+    file: pages/terms.md
+  
+
+phases:
+  - index: 0
+    name: Infographics Phase 1 - Development
+    description: Infographics Phase 1 - Development Phase
+    start: 2024-06-12
+    end: 2024-06-30
+    tasks:
+      - 0
+  - index: 1
+    name: Infographics Phase 2 - Final
+    description: Infographics Phase 2 - Final Phase
+    start: 2024-07-01
+    end: 2024-07-31
+    tasks:
+      - 0
+
+
+tasks:
+  - index: 0
+    name: Check checklist 
+    description: Check checklist using LLMs  
+    scoring_program: scoring_program/
+    ingestion_program: ingestion_program/
+
+
+leaderboards:
+  - index: 0 
+    title: Results
+    key: main
+    submission_rule: "Add_And_Delete"
+    columns:
+      - index: 0
+        title: CG
+        key: CG
