@@ -48,6 +48,7 @@ tasks:
   - index: 0
     name: Infographics Task 1
     description: Infographics Task 1 
+    ingestion_program: ingestion_program/
     scoring_program: scoring_program/
     input_data: input_data/
     reference_data: reference_data/

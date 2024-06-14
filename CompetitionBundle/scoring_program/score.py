@@ -17,8 +17,7 @@ from constants import GPT_KEY
 # ------------------------------------------
 # Settings
 # ------------------------------------------
-CODABENCH = False  # True when running on Codabench
-VERBOSE = False  # False for Codabench, True for debugging
+CODABENCH = True  # True when running on Codabench
 
 
 class Scoring:
@@ -147,7 +146,13 @@ class Scoring:
         }
 
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-        return response.json()['choices'][0]['message']['content']
+        try:
+            review = response.json()['choices'][0]['message']['content']
+        except Exception as e:
+            print(response)
+            print(e)
+
+        return review
 
     def get_feedback_from_LLM(self):
         print("[*] Getting feedback from LLM")
@@ -207,7 +212,7 @@ class Scoring:
             # convert image to base 64
             base_64_combined_img = base64.b64encode(buffered.getvalue()).decode('utf-8')
 
-            # Get GPT review and score 
+            # Get GPT review and score
             gpt_review = self._get_GPT_Feedback(base_64_combined_img, image_caption)
 
             # Extract score from review

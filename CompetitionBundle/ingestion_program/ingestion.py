@@ -12,8 +12,7 @@ warnings.filterwarnings("ignore")
 # ------------------------------------------
 # Settings
 # ------------------------------------------
-CODABENCH = False  # True when running on Codabench
-VERBOSE = False  # False for codabench, True for debugging
+CODABENCH = True  # True when running on Codabench
 
 
 # ------------------------------------------
@@ -96,7 +95,6 @@ class Ingestion():
     def generate_images(self):
         print("[*] Generating images from image captions")
         self.images_urls = self.model.generate_images()
-        print(self.images_urls)
 
     def save_images(self):
         print("[*] Saving generated images")
